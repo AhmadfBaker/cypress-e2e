@@ -6,3 +6,4 @@ The original repo is here: https://github.com/akveo/ngx-admin
 # cypress-e2e
 # cypress-e2e
 # cypress-e2e
+# cypress-e2e git init
