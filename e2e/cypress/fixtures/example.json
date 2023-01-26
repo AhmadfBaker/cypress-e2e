@@ -1,0 +1,13 @@
+{
+  "name": "Ahmad Baker",
+  "firstname": "Ahmad",
+  "lastname": "Baker",
+  "username": "abaker",
+  "id": "1377",
+  "age": "31",
+  "email": "hello@cypress.io",
+  "body": "Fixtures are a great way to mock data for responses to routes",
+  "password": "12345",
+  "subject": "TestFixture",
+  "website": "www.cypress.io"
+}
