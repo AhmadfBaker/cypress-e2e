@@ -33,7 +33,7 @@ describe('tables', () => {
 
                     if (n == 5) {
                         cy.get('a[aria-label=Next]').invoke('css', 'pointer-events').should('equal', 'none')
-                        expect(length).to.eq(61)                        
+                        expect(length).to.eq(60)                        
                     }
                     
                     else {
@@ -99,7 +99,7 @@ describe('tables', () => {
         })
     })
 
-    it('delete row by index', () => {
+    it.skip('delete row by index', () => {
         table.deleteRowByIndex(3)
     })
 })

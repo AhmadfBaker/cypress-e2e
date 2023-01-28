@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+import { getMultipleValuesInSingleSelectionError } from "@angular/cdk/collections"
+import { table, Tables } from "./tables-modules.cy"
+
 describe('tables', () => {
 
     beforeEach(() => {
@@ -13,20 +16,50 @@ describe('tables', () => {
     })
 
     it('verify overall rows count', () => {
-        // 6 pages 
-        // Need a variables to save the rows count
-        // use for loop to move between pages (6 pages)
-        // get table > find(tbody tr).then((rows) => {
-        //definedVar += rows.length
+        var length = 0
+        for (let n = 0; n < 6; n++) {
+            table.getTable('Smart Table').within((smartTable) => {
+                cy.wrap(smartTable).find('tbody tr').then((rows) => {
+                    length += rows.length
 
-        //if(n ==5)
-        // make sure that the next button is disabled
-        // expect length = 60
+                    if (n == 5) {
+                        cy.get('a[aria-label=Next]').invoke('css', 'pointer-events').should('equal', 'none')
+                        expect(length).to.eq(60)
 
-        //else 
-        // click next
+                    }
+                    else {
+                        cy.get('a[aria-label=Next]').click()
+
+                    }
+                    console.log(length)
+
+                })
+            })
+        }
 
     })
 
+    it.only('verify overall rows count', () => {
+        const ages = [20, 30, 40, 50, 100]
+        cy.wrap(ages).each((age: number) => {
+            cy.get('input[placeholder=Age]').clear().type(age +"")
+            Tables
+            cy.wait(1000)
+
+            cy.get('tbody tr').each((row) =>{
+                if(age < 50) {
+                    cy.wrap(row).find('td').eq(6).should('contain', age)
+                }
+                else {
+                    cy.wrap(row).should('contain', 'No data found')
+                }
+            
+            })
+
+
+        })
+    })
 })
+
+
 
