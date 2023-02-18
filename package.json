@@ -92,6 +92,7 @@
     "codelyzer": "^6.0.2",
     "conventional-changelog-cli": "^2.1.1",
     "cypress": "12.5.0",
+    "cypress-mochawesome-reporter": "^3.3.0",
     "husky": "7.0.4",
     "jasmine-core": "3.10.1",
     "jasmine-spec-reporter": "7.0.0",
